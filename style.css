@@ -1,0 +1,30 @@
+body {
+  background: #e9ecef;
+}
+h1 {
+  color: #03045e;
+}
+.tabs {
+  padding-block: 0.7rem;
+  background: rgb(200, 200, 200);
+  border: 3px solid rgb(200, 200, 200);
+  font-weight: 600;
+  flex-grow: 1;
+  outline: none;
+}
+.activeTab {
+  background-color: white;
+  border: 3px solid dodgerblue;
+  transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
+}
+.content {
+  background-color: white;
+}
+p {
+  padding: 8px;
+  margin: 0;
+  color: #0077b6;
+}
+img {
+  aspect-ratio: 3/2;
+}
