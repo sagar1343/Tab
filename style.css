@@ -12,13 +12,14 @@ h1 {
   flex-grow: 1;
   outline: none;
 }
-.activeTab {
+.active-tab {
   background-color: white;
   border: 3px solid dodgerblue;
   transition: background-color 0.3s ease-in, border-color 0.3s ease-in;
 }
 .content {
   background-color: white;
+  display: none;
 }
 p {
   padding: 8px;
@@ -27,4 +28,7 @@ p {
 }
 img {
   aspect-ratio: 3/2;
+}
+.active-content {
+  display: block;
 }

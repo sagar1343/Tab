@@ -39,17 +39,27 @@ const tabs = [
   quis debitis nobis corporis dicta, nemo nostrum eligendi, quo`,
   },
 ];
+let currentContentId = 1;
+
+tabContainer.addEventListener("click", (e) => {
+  if (e.target.tagName === "BUTTON") {
+    document.querySelector(".active-tab").classList.remove("active-tab");
+    e.target.classList.add("active-tab");
+  }
+});
 
 tabs.forEach((tab) => {
   const button = document.createElement("BUTTON");
   button.id = tab.id;
   button.innerHTML = tab.name;
   button.classList.add("tabs");
+  if (tab.id == 1) button.classList.add("active-tab");
   tabContainer.appendChild(button);
   button.addEventListener("click", (e) => handleClick(e));
 
   const content = document.createElement("P");
   content.id = `content${tab.id}`;
+  if (tab.id == 1) content.classList.add("active-content");
   content.classList.add("content");
   content.innerHTML = `<p>${tab.content}</p>`;
   contentContainer.appendChild(content);
@@ -57,19 +67,12 @@ tabs.forEach((tab) => {
 
 function handleClick(e) {
   showContent(e.target.id);
-  activeTab(e.target.id);
+  currentContentId = e.target.id;
 }
 
 function showContent(id) {
-  const contents = document.querySelectorAll(".content");
-  contents.forEach((content) => content.classList.add("d-none"));
-  document.querySelector(`#content${id}`).classList.remove("d-none");
-}
-function activeTab(id) {
-  const tabs = document.querySelectorAll(".tabs");
-  tabs.forEach((tab) => tab.classList.remove("activeTab"));
-  document.getElementById(id).classList.add("activeTab");
+  document.querySelector(".active-content").classList.remove("active-content");
+  document.querySelector(`#content${id}`).classList.add("active-content");
 }
 
-showContent(1);
-activeTab(1);
+showContent(currentContentId);
